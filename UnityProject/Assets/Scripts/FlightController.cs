@@ -48,7 +48,7 @@ public class FlightController : MonoBehaviour
 
     private void HandleThrust()
     {
-        transform.Translate(Vector3.down * 10f * Time.deltaTime);
+        transform.Translate(Vector3.down * 3f * Time.deltaTime);
         
         if (Input.GetKey(KeyCode.Space))
         {
