@@ -51,6 +51,7 @@ public class FlightController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             transform.Translate(Vector3.forward * thrustSpeed * Time.deltaTime);
+            transform.Translate(Vector3.down * 2f * Time.deltaTime);
         }
     }
 }
