@@ -2,7 +2,10 @@
 // CENG 454 - HW1 : Sky-High Prototype
 // Author: Mehmet Anil ULKU | Student ID: 220441001
 
+using System;
+using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class FlightController : MonoBehaviour
 {
@@ -10,8 +13,10 @@ public class FlightController : MonoBehaviour
     [SerializeField] private float yawSpeed = 45f;
     [SerializeField] private float rollSpeed = 45f;
     [SerializeField] private float thrustSpeed = 5f;
+    private float currentSpeed = 0f;
     
     private Rigidbody rb;
+    
     
     void Start()
     {
@@ -48,12 +53,24 @@ public class FlightController : MonoBehaviour
 
     private void HandleThrust()
     {
-        transform.Translate(Vector3.down * 3f * Time.deltaTime);
         
         if (Input.GetKey(KeyCode.Space))
         {
-            transform.Translate(Vector3.forward * thrustSpeed * Time.deltaTime);
-            
+            currentSpeed +=  thrustSpeed * Time.deltaTime;
         }
+        
+        else 
+        {
+            currentSpeed -= thrustSpeed * Time.deltaTime;
+        }
+        
+        currentSpeed = Mathf.Clamp(currentSpeed, 0f, thrustSpeed);
+        
+        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+        
+        float fallSpeed = Mathf.Lerp(0f, 3f, 1f-(currentSpeed/thrustSpeed));
+        
+        transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
+        transform.Translate(Vector3.forward * fallSpeed * 0.4f * Time.deltaTime);
     }
 }
