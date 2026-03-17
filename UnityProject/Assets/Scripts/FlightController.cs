@@ -2,8 +2,6 @@
 // CENG 454 - HW1 : Sky-High Prototype
 // Author: Mehmet Anil ULKU | Student ID: 220441001
 
-using System;
-using System.Numerics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
