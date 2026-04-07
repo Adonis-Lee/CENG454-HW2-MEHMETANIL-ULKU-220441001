@@ -5,6 +5,7 @@ public class FlightExamManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text statusText;
     [SerializeField] private TMP_Text missionText;
+    [SerializeField] private AudioSource warningSource;
     
     private bool hasTakenOff = false;
     private bool enteredDangerZone = false;
@@ -28,6 +29,7 @@ public class FlightExamManager : MonoBehaviour
     {
         enteredDangerZone = true;
         statusText.text = "Entered a Danger Zone!";
+        warningSource.Play();
     }
 
     public void ExitDangerZone()
@@ -35,5 +37,6 @@ public class FlightExamManager : MonoBehaviour
         enteredDangerZone = false;
         statusText.text = "";
         threatCleared = true;
+        warningSource.Stop();
     }
 }
