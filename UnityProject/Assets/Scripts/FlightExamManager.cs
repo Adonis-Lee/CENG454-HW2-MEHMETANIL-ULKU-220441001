@@ -30,6 +30,7 @@ public class FlightExamManager : MonoBehaviour
     public void EnterDangerZone()
     {
         enteredDangerZone = true;
+        missionText.text = "";
         statusText.text = "Entered a Danger Zone!";
         warningSource.Play();
     }
