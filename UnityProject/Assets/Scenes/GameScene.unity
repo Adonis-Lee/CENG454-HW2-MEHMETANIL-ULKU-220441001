@@ -312,7 +312,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 51
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1118,7 +1118,7 @@ GameObject:
   - component: {fileID: 857669196}
   - component: {fileID: 857669198}
   - component: {fileID: 857669197}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: DangerZone
   m_TagString: DangerZone
   m_Icon: {fileID: 0}
@@ -1188,7 +1188,7 @@ GameObject:
   - component: {fileID: 869163726}
   - component: {fileID: 869163728}
   - component: {fileID: 869163727}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1501,7 +1501,7 @@ GameObject:
   - component: {fileID: 1023738484}
   - component: {fileID: 1023738486}
   - component: {fileID: 1023738485}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1591,7 +1591,7 @@ GameObject:
   - component: {fileID: 1052136859}
   - component: {fileID: 1052136858}
   - component: {fileID: 1052136857}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: LandingArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,7 +1795,7 @@ GameObject:
   - component: {fileID: 1211322797}
   - component: {fileID: 1211322799}
   - component: {fileID: 1211322798}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3174,7 +3174,7 @@ GameObject:
   - component: {fileID: 2045186183}
   - component: {fileID: 2045186182}
   - component: {fileID: 2045186181}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: TakeoffArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
