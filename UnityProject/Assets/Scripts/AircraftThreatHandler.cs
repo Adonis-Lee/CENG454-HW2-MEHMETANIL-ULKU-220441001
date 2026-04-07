@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class AircraftThreatHandler : MonoBehaviour
@@ -5,8 +6,11 @@ public class AircraftThreatHandler : MonoBehaviour
     [SerializeField] private Transform respawnPoint;
     [SerializeField] private FlightExamManager examManager;
     [SerializeField] private AudioSource explosionSource;
+    [SerializeField] private GameUIManager uiManager;
+
+
     Rigidbody rb;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -17,11 +21,29 @@ public class AircraftThreatHandler : MonoBehaviour
         if (other.CompareTag("Missile"))
         {
             Destroy(other.gameObject);
-            transform.position = respawnPoint.position;
-            transform.rotation = respawnPoint.rotation;
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
+            TriggerCrash();
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Terrain"))
+        {
+            TriggerCrash();
+        }
+    }
+
+    private void TriggerCrash()
+    {
+        if (explosionSource != null)
+        {
+            explosionSource.ignoreListenerPause = true;
             explosionSource.PlayOneShot(explosionSource.clip);
+        }
+
+        if (uiManager != null)
+        {
+            uiManager.TriggerGameOver();
         }
     }
 }

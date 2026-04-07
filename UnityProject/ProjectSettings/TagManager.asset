@@ -8,6 +8,7 @@ TagManager:
   - Missile
   - TakeoffArea
   - LandingArea
+  - Terrain
   layers:
   - Default
   - TransparentFX

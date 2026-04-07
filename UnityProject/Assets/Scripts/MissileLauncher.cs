@@ -4,17 +4,9 @@ public class MissileLauncher : MonoBehaviour
 {
     [SerializeField] private GameObject missilePrefab;
     [SerializeField] private Transform missileSpawn;
-    private GameObject activeMissile;
+    [SerializeField] private ThreatRadar threatRadar;
     
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
+    private GameObject activeMissile;
 
     public void DestroyActiveMissile()
     {
@@ -22,6 +14,11 @@ public class MissileLauncher : MonoBehaviour
         {
             Destroy(activeMissile);
             activeMissile = null;
+
+            if (threatRadar != null)
+            {
+                threatRadar.SetIncomingMissile(null);
+            }
         }
     }
 
@@ -29,6 +26,11 @@ public class MissileLauncher : MonoBehaviour
     {
         activeMissile = Instantiate(missilePrefab, missileSpawn.position, missileSpawn.rotation);
         activeMissile.GetComponent<MissileHoming>().SetTarget(target);
+
+        if (threatRadar != null)
+        {
+            threatRadar.SetIncomingMissile(activeMissile.transform);
+        }
         return activeMissile;
     }
 }
