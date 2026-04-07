@@ -68,7 +68,6 @@ public class FlightController : MonoBehaviour
         
         float fallSpeed = Mathf.Lerp(0f, 3f, 1f-(currentSpeed/thrustSpeed));
         
-        transform.Translate(Vector3.down * fallSpeed * Time.deltaTime, Space.World);
-        transform.Translate(Vector3.forward * fallSpeed * 0.4f * Time.deltaTime);
+        transform.position += Vector3.down * fallSpeed * Time.deltaTime;
     }
 }
