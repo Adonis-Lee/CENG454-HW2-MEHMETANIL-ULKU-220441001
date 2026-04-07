@@ -5,7 +5,9 @@ public class FlightExamManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text statusText;
     [SerializeField] private TMP_Text missionText;
+    
     [SerializeField] private AudioSource warningSource;
+    [SerializeField] private AudioSource winSource;
     
     private bool hasTakenOff = false;
     private bool enteredDangerZone = false;
@@ -38,5 +40,27 @@ public class FlightExamManager : MonoBehaviour
         statusText.text = "";
         threatCleared = true;
         warningSource.Stop();
+    }
+
+    public void TakeOff()
+    {
+        hasTakenOff = true;
+        missionText.text = "Take off successful!\nHead to the danger zone.";
+    }
+    
+    public void LandingAttempt()
+    {
+        if (hasTakenOff && threatCleared && !missionCompleted)
+        {
+            missionCompleted = true;
+            missionText.text = "Mission completed successfully!";
+            statusText.text = "";
+            winSource.Play();
+        }
+        
+        else if (!threatCleared)
+        {
+            missionText.text = "Clear Threat Zone!";
+        }
     }
 }
