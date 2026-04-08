@@ -16,10 +16,8 @@ public class FlightExamManager : MonoBehaviour
     
     void Start()
     {
-        
         statusText.text = "";
         missionText.text = "";
-        
     }
     
     void Update()

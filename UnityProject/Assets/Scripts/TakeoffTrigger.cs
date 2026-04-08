@@ -6,7 +6,7 @@ public class TakeoffTrigger : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             examManager.TakeOff();
         }
